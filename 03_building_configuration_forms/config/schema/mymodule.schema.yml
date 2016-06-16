@@ -1,0 +1,13 @@
+mymodule.config:
+  type: config_object
+  label: 'My Configs'
+  mapping:
+    a:
+      type: text
+      label: A
+    b:
+      type: int
+      label: B
+    c:
+      type: text
+      label: 'Radio'

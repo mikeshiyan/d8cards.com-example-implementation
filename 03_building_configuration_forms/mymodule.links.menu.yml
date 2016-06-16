@@ -1,0 +1,7 @@
+mymodule.config_form:
+  title: 'My Configs'
+  route_name: mymodule.config_form
+  description: 'A description for the menu entry'
+  parent: system.admin_config_system
+  weight: 99
+

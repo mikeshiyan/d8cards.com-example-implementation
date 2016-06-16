@@ -1,0 +1,4 @@
+access my configs:
+  title: 'Access My Configs'
+  description: 'Access MY CONFIGURATIONS.'
+  restrict access: TRUE

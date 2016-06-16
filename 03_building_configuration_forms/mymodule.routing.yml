@@ -1,0 +1,10 @@
+mymodule.config_form:
+  path: '/mymodule/config'
+  defaults:
+    _form: '\Drupal\mymodule\Form\ConfigForm'
+    _title: 'My Configs'
+  requirements:
+    _permission: 'access my configs'
+  options:
+    _admin_route: TRUE
+
