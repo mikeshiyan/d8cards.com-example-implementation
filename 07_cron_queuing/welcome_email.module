@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Contains welcome_email.module..
+ */
+
+use Drupal\Core\Mail\MailFormatHelper;
+use Drupal\Core\Queue\QueueFactory;
+use Drupal\Core\Queue\QueueInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_help().
+ */
+function welcome_email_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the welcome_email module.
+    case 'help.page.welcome_email':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Sends a welcome email to registered users.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert() for user.
+ */
+function welcome_email_user_insert(UserInterface $user) {
+  /** @var QueueFactory $queue_factory */
+  $queue_factory = \Drupal::service('queue');
+
+  /** @var QueueInterface $queue */
+  $queue = $queue_factory->get('welcome_email');
+
+  $queue->createItem($user->id());
+}
+
+/**
+ * Implements hook_mail().
+ */
+function welcome_email_mail($key, &$message, $params) {
+  $variables = [
+    '@site-name' => \Drupal::config('system.site')->get('name'),
+    '@username' => $params['account']->getDisplayName(),
+  ];
+  $language = \Drupal::languageManager()->getLanguage($message['langcode']);
+  $options = ['langcode' => $language->getId()];
+
+  $message['subject'] .= t('Welcome to @site-name', $variables, $options);
+  $message['body'][] = t('Hello @username,', $variables, $options);
+  $message['body'][] = t('Welcome to the @site-name !!!', $variables, $options);
+}

@@ -1,0 +1,5 @@
+name: Welcome email
+type: module
+description: Sends a welcome email to registered users.
+core: 8.x
+package: D8cards
