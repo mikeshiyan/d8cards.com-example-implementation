@@ -1,0 +1,5 @@
+name: Auto capitalize filter
+type: module
+description: Auto-capitalizes pre-configured words in the filtered text.
+core: 8.x
+package: D8cards
