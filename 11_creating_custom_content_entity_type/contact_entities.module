@@ -1,0 +1,18 @@
+<?php
+/**
+ * @file
+ * Contains contact_entities.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function contact_entities_theme() {
+  $theme['contact'] = array(
+    'render element' => 'elements',
+    'file' => 'contact.page.inc',
+    'template' => 'contact',
+  );
+  
+  return $theme;
+}

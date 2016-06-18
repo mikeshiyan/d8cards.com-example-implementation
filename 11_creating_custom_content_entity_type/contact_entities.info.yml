@@ -1,0 +1,7 @@
+name: Contact entities
+type: module
+description: Provides a content entity type called "Contact".
+core: 8.x
+package: D8cards
+dependencies:
+  - telephone
