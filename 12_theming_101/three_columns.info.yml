@@ -1,0 +1,14 @@
+name: Three columns
+type: theme
+description: A very basic 3 column theme.
+package: D8cards
+core: 8.x
+libraries:
+  - three_columns/global-styling
+
+base theme: stable
+
+regions:
+  content: Content
+  sidebar1: Sidebar 1
+  sidebar2: Sidebar 2
