@@ -1,0 +1,5 @@
+name: Node updates logger
+type: module
+description: Adds a record to the log whenever a node is updated.
+core: 8.x
+package: D8cards

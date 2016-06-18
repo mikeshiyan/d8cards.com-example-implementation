@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains node_updates_logger.module..
+ */
+
+use Drupal\node\NodeInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function node_updates_logger_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the node_updates_logger module.
+    case 'help.page.node_updates_logger':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Adds a log records about node updates.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update() for node.
+ */
+function node_updates_logger_node_update(NodeInterface $node) {
+  Drupal::logger('Node Updates')->info('Node with title %title of type @type has been updated.', [
+    '@type' => $node->bundle(),
+    '%title' => $node->label(),
+  ]);
+}
