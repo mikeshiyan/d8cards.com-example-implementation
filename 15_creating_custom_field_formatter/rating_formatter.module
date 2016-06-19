@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains rating_formatter.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function rating_formatter_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the rating_formatter module.
+    case 'help.page.rating_formatter':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function rating_formatter_theme() {
+  return [
+    'rating_stars' => [
+      'variables' => ['rating' => 0],
+    ],
+  ];
+}

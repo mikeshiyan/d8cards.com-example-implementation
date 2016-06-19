@@ -1,0 +1,5 @@
+name: Rating formatter
+type: module
+description: Provides a field formatter to display a rating as stars.
+core: 8.x
+package: D8cards
