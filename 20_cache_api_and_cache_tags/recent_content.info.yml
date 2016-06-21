@@ -1,0 +1,5 @@
+name: Recent content
+type: module
+description: Provides a block displaying recent content.
+core: 8.x
+package: D8cards
