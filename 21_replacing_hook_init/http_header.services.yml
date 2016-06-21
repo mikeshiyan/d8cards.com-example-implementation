@@ -1,0 +1,6 @@
+services:
+  http_header.acao:
+    class: Drupal\http_header\EventSubscriber\ResponseSubscriber
+    arguments: ["@current_user"]
+    tags:
+      - { name: event_subscriber }

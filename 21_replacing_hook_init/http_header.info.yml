@@ -1,0 +1,5 @@
+name: HTTP Header
+type: module
+description: Adds Access-Control-Allow-Origin HTTP header to all page responses for anonymous users.
+core: 8.x
+package: D8cards
