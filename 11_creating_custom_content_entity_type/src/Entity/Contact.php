@@ -56,6 +56,7 @@ use Drupal\user\UserInterface;
  */
 class Contact extends ContentEntityBase implements ContactInterface {
   use EntityChangedTrait;
+
   /**
    * {@inheritdoc}
    */

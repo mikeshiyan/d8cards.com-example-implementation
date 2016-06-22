@@ -19,19 +19,19 @@ class ResponseSubscriber implements EventSubscriberInterface {
    *
    * @var AccountProxy
    */
-  protected $current_user;
+  protected $currentUser;
 
   /**
    * Constructor.
    */
   public function __construct(AccountProxy $current_user) {
-    $this->current_user = $current_user;
+    $this->currentUser = $current_user;
   }
 
   /**
    * {@inheritdoc}
    */
-  static function getSubscribedEvents() {
+  public static function getSubscribedEvents() {
     $events[KernelEvents::RESPONSE] = ['addAcao'];
 
     return $events;
@@ -41,9 +41,10 @@ class ResponseSubscriber implements EventSubscriberInterface {
    * Adds Access-Control-Allow-Origin HTTP header for anonymous users.
    *
    * @param FilterResponseEvent $event
+   *   Event.
    */
   public function addAcao(FilterResponseEvent $event) {
-    if (!$this->current_user->id()) {
+    if (!$this->currentUser->id()) {
       $response = $event->getResponse();
       $response->headers->set('Access-Control-Allow-Origin', '*');
     }

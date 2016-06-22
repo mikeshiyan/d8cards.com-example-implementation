@@ -11,16 +11,6 @@ use Drupal\Core\Form\FormStateInterface;
  * @ingroup contact_entities
  */
 class ContactForm extends ContentEntityForm {
-  /**
-   * {@inheritdoc}
-   */
-  public function buildForm(array $form, FormStateInterface $form_state) {
-    /* @var $entity \Drupal\contact_entities\Entity\Contact */
-    $form = parent::buildForm($form, $form_state);
-    $entity = $this->entity;
-
-    return $form;
-  }
 
   /**
    * {@inheritdoc}

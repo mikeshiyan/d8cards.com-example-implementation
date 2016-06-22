@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains Drupal\auto_capitalize_filter\Plugin\Filter\AutoCapitalizeFilter.
- */
 
 namespace Drupal\auto_capitalize_filter\Plugin\Filter;
 
@@ -13,7 +9,7 @@ use Drupal\filter\Plugin\FilterBase;
 
 /**
  * Provides a filter to auto-capitalize pre-configured words.
- * 
+ *
  * @Filter(
  *   id = "filter_auto_capitalize",
  *   title = @Translation("Auto-capitalize pre-configured words"),

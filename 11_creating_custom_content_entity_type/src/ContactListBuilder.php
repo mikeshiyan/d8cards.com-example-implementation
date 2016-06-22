@@ -14,6 +14,7 @@ use Drupal\Core\Url;
  */
 class ContactListBuilder extends EntityListBuilder {
   use LinkGeneratorTrait;
+
   /**
    * {@inheritdoc}
    */

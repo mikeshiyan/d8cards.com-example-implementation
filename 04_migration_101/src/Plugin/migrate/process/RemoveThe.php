@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains Drupal\migration_101\Plugin\migrate\process\RemoveThe.
- */
 
 namespace Drupal\migration_101\Plugin\migrate\process;
 
@@ -26,10 +22,10 @@ class RemoveThe extends Get {
     $value = parent::transform($value, $migrate_executable, $row, $destination_property);
 
     if (is_string($value)) {
-      self::removeThe($value);
+      self::remove($value);
     }
     else {
-      array_walk_recursive($value, 'self::removeThe');
+      array_walk_recursive($value, 'self::remove');
     }
 
     return $value;
@@ -44,7 +40,7 @@ class RemoveThe extends Get {
    * @return string
    *   Clean string w/o "the"s.
    */
-  protected static function removeThe(&$string) {
+  protected static function remove(&$string) {
     $string = ucfirst(trim(preg_replace('/\s*\bthe\b\s*/i', ' ', $string)));
 
     return $string;

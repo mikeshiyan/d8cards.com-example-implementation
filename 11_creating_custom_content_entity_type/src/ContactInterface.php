@@ -12,7 +12,7 @@ use Drupal\user\EntityOwnerInterface;
  * @ingroup contact_entities
  */
 interface ContactInterface extends ContentEntityInterface, EntityChangedInterface, EntityOwnerInterface {
-  // Add get/set methods for your configuration properties here.
+
   /**
    * Gets the Contact name.
    *

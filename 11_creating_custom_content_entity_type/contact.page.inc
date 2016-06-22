@@ -8,8 +8,6 @@
  */
 
 use Drupal\Core\Render\Element;
-use Drupal\Core\Link;
-use Drupal\Core\Url;
 
 /**
  * Prepares variables for Contact templates.
@@ -22,9 +20,6 @@ use Drupal\Core\Url;
  *   - attributes: HTML attributes for the containing element.
  */
 function template_preprocess_contact(array &$variables) {
-  // Fetch Contact Entity Object.
-  $contact = $variables['elements']['#contact'];
-
   // Helpful $content variable for templates.
   foreach (Element::children($variables['elements']) as $key) {
     $variables['content'][$key] = $variables['elements'][$key];

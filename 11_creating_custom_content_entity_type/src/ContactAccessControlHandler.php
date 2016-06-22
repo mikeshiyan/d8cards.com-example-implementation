@@ -13,6 +13,7 @@ use Drupal\Core\Access\AccessResult;
  * @see \Drupal\contact_entities\Entity\Contact.
  */
 class ContactAccessControlHandler extends EntityAccessControlHandler {
+
   /**
    * {@inheritdoc}
    */

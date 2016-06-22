@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains Drupal\rating_formatter\Plugin\Field\FieldFormatter\RatingStars.
- */
 
 namespace Drupal\rating_formatter\Plugin\Field\FieldFormatter;
 
@@ -47,7 +43,6 @@ class RatingStars extends FormatterBase {
   public function settingsSummary() {
     $summary = [];
     // Implement settings summary.
-
     return $summary;
   }
 
@@ -57,7 +52,7 @@ class RatingStars extends FormatterBase {
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
     $max = $this->getFieldSettings()['max'];
-    
+
     foreach ($items as $delta => $item) {
       $rating = round($item->value / $max * 100);
 

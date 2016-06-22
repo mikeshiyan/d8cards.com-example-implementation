@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains Drupal\welcome_email\Plugin\QueueWorker\WelcomeEmail.
- */
 
 namespace Drupal\welcome_email\Plugin\QueueWorker;
 
@@ -10,7 +6,6 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Queue\QueueWorkerBase;
-use Drupal\user\UserInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -68,7 +63,7 @@ class WelcomeEmail extends QueueWorkerBase implements ContainerFactoryPluginInte
     /** @var UserInterface $user */
     $user = $this->userStorage->load($data);
 
-    if ($user) {  
+    if ($user) {
       $this->mailManager->mail('welcome_email', 'welcome', $user->getEmail(), $user->getPreferredLangcode(), ['account' => $user]);
     }
   }

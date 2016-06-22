@@ -13,6 +13,6 @@ function contact_entities_theme() {
     'file' => 'contact.page.inc',
     'template' => 'contact',
   );
-  
+
   return $theme;
 }

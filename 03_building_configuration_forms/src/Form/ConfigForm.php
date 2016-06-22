@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\mymodule\Form\ConfigForm.
- */
 
 namespace Drupal\mymodule\Form;
 

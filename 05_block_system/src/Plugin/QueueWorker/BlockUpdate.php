@@ -1,12 +1,7 @@
 <?php
-/**
- * @file
- * Contains Drupal\serc_updater\Plugin\QueueWorker\BlockUpdate.
- */
 
 namespace Drupal\serc_updater\Plugin\QueueWorker;
 
-use Drupal\block_content\BlockContentInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Queue\QueueWorkerBase;
@@ -108,4 +103,5 @@ class BlockUpdate extends QueueWorkerBase implements ContainerFactoryPluginInter
 
     throw new \Exception('Something wrong with response from dev.markitondemand.com');
   }
+
 }

@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains Drupal\migration_101\Plugin\migrate\source\Genres.
- */
 
 namespace Drupal\migration_101\Plugin\migrate\source;
 
