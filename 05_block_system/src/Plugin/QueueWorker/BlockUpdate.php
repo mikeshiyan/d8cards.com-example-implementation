@@ -5,8 +5,8 @@ namespace Drupal\serc_updater\Plugin\QueueWorker;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Queue\QueueWorkerBase;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use GuzzleHttp\Client;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Queue Worker that actualizes Stock Exchange Rate Cards.
@@ -22,26 +22,34 @@ class BlockUpdate extends QueueWorkerBase implements ContainerFactoryPluginInter
   /**
    * Blocks entity storage.
    *
-   * @var EntityStorageInterface
+   * @var \Drupal\Core\Entity\EntityStorageInterface
    */
   protected $blockStorage;
 
   /**
    * HTTP client.
    *
-   * @var Client
+   * @var \GuzzleHttp\Client
    */
   protected $httpClient;
 
   /**
    * BlockUpdate constructor.
    *
-   * @param EntityStorageInterface $block_storage
+   * @param array $configuration
+   *   A configuration array containing information about the plugin instance.
+   * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
+   * @param array $plugin_definition
+   *   The plugin implementation definition.
+   * @param \Drupal\Core\Entity\EntityStorageInterface $block_storage
    *   The block entity storage.
-   * @param Client $http_client
+   * @param \GuzzleHttp\Client $http_client
    *   HTTP client.
    */
-  public function __construct(EntityStorageInterface $block_storage, Client $http_client) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityStorageInterface $block_storage, Client $http_client) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+
     $this->blockStorage = $block_storage;
     $this->httpClient = $http_client;
   }
@@ -51,6 +59,9 @@ class BlockUpdate extends QueueWorkerBase implements ContainerFactoryPluginInter
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
       $container->get('entity.manager')->getStorage('block_content'),
       $container->get('http_client')
     );
